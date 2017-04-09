@@ -1,0 +1,6 @@
+framework module Pods_PersonalSpotifyTests {
+  umbrella header "Pods-PersonalSpotifyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

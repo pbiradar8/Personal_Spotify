@@ -1,0 +1,6 @@
+framework module Pods_PersonalSpotify {
+  umbrella header "Pods-PersonalSpotify-umbrella.h"
+
+  export *
+  module * { export * }
+}
