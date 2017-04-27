@@ -33,12 +33,13 @@ class MainViewController: UITableViewController,UISearchBarDelegate {
     typealias JSONStandard = [String: AnyObject]
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        posts.removeAll()
         let keywords = searchBar.text
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "+")
         searchURL = "https://api.spotify.com/v1/search?q=\(finalKeywords!)&type=track"
         print(searchURL)
         callAlamo(url: searchURL)
+        
         
         self.view.endEditing(true)
     }
@@ -67,7 +68,7 @@ class MainViewController: UITableViewController,UISearchBarDelegate {
     func parseData(JSONData:Data) {
         do{
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
-            
+            //print(readableJSON)
             if let tracks = readableJSON["tracks"]as? JSONStandard{
                 if let items = tracks["items"] as? [JSONStandard]{
                     
